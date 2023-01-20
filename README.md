@@ -17,25 +17,14 @@ Once you have yourself setup with an account and optionally a team, you will nee
 
 [How to Create a Personal Access Token](https://docs.digitalocean.com/reference/api/create-personal-access-token/)
 
-Create a new file in your repository here under the `/terraform` directory called `dev.auto.tfvars`.  This file will be ignored by `.gitignore` and is a place to store secure configurations that should not be stored in version control.  You will need to come up with another way to share this information across your team.
-
-After you created the file, add your new access token as `do_token`
-
-```s
-# dev.auto.tfvars
-do_token = "<Your Token Here>"
-```
+Record your personal access token temporarily 
 
 It is recommended that your Terraform State be stored in a global location so it can be maintained by multiple members of your team.  To allow this with Digital Ocean spaces, we need to generate some Spaces API Keys.  You can find the instructions here:
 
 [How to Manage Administrative Access to Spaces](https://docs.digitalocean.com/products/spaces/how-to/manage-access/#access-keys)
 
-After you have created your keys go back to the repo and create another new file called `config.s3.tfbackend`
-
-
-
-go to the Spaces page in Digital Ocean and create a new space for your terraform state. 
+Record the access key/secret, we will need them later on to setup the project.  We will also need a space setup ahead of time, go to the Spaces page in Digital Ocean and create a new space for your terraform state. 
 
 [How to Create Spaces](https://docs.digitalocean.com/products/spaces/how-to/create/)
 
-Once your space has been created, we will need to take t
+Finally run the setup script in this repository which will prompt you for the information you created in order to connect to digital ocean
