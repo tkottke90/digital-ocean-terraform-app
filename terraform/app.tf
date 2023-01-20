@@ -28,7 +28,7 @@ resource "digitalocean_app" "app" {
     }
 
     service {
-      dockerfile_path    = ""
+      dockerfile_path    = "dockerfile"
       http_port          = 5000
       instance_count     = 1
       instance_size_slug = "basic-xxs"
@@ -56,6 +56,10 @@ resource "digitalocean_app" "app" {
         key = "DATABASE_URL"
         value = ""
         type = "GENERAL"
+      }
+
+      health_check {
+        http_path = "/v1/healthcheck"
       }
     }
 
